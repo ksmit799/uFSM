@@ -7,14 +7,14 @@ namespace uFSM
     public class FSM<T> where T : class, new()
     {
         private static T m_Instance = new T();
-        private static object m_SingletonLock = new object();
+        private static object m_FSMLock = new object();
 
         private List<KeyValuePair<string, object[]>> m_TransitionQueue = new List<KeyValuePair<string, object[]>>();
         private string m_State = "Off";
 
         public void Request(string name, object[] args = null)
         {
-            lock (m_SingletonLock)
+            lock (m_FSMLock)
             {
                 // If we are already processing a transition, queue it.
                 if (m_State == null)
