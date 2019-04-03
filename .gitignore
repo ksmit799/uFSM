@@ -1,3 +1,6 @@
+# Ignore meta files
+*.meta
+
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
